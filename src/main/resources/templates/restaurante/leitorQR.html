@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="/images/logo2.png" type="image/x-icon">
+  <meta name="description" content="Website Builder Description">
+  
+  <title>Scanner</title>
+  <link rel="stylesheet" href="/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="/tether/tether.min.css">
+  <link rel="stylesheet" href="/dropdown/css/style.css">
+  <link rel="stylesheet" href="/socicon/css/styles.css">
+  <link rel="stylesheet" href="/theme/css/style.css">
+  <link rel="preload" as="style" href="/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="/mobirise/css/mbr-additional.css" type="text/css">
+  
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/a35f1a6e09.js"></script>
+
+  <script src="/js/page3.js"></script>
+  
+  	<link rel="stylesheet" href="/css/restaurante/style.css">
+  	<link rel="stylesheet" href="/css/404.css">
+    <link href="/qr/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+	<div th:if="${session.restauranteLogado}">
+	   <section class="menu cid-rIdJm2Bp7s" once="menu" id="menu1-14">
+	   
+		    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
+		        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		            <div class="hamburger">
+		                <span></span>
+		                <span></span>
+		                <span></span>
+		                <span></span>
+		            </div>
+		        </button>
+		        <div class="menu-logo">
+		            <div class="navbar-brand">
+		                <span class="navbar-logo">
+		                    <a th:href="|/homeRest/${session.restauranteLogado.idRestaurante}|">
+		                         <img src="/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+		                    </a>
+		                </span>
+		                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" th:href="|/homeRest/${session.restauranteLogado.idRestaurante}|">
+		                        Inspire</a></span>
+		            </div>
+		        </div>
+		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+		                    <a class="nav-link link text-white display-4" th:href="|/homeRest/${session.restauranteLogado.idRestaurante}|"><span class="icon mbrib-home mbr-iconfont mbr-iconfont-btn"></span>
+		                        Home &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+		                </li>  				
+		  				<li class="nav-item dropdown">
+		        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false" ><span class="icon mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span> 
+		                     <span th:text="${session.restauranteLogado.nomeRestaurante}" class="icon"></span>&nbsp; &nbsp;</a>
+		                     <div class="dropdown-menu">
+		                     	<a class="text-white dropdown-item display-4" th:href="|/configuracoes/${session.restauranteLogado.idRestaurante}|">Configuraçoes</a>
+		                     	<a class="text-white dropdown-item display-4" th:href="|/senha/${session.restauranteLogado.hashId}|">Redefinir senha</a>
+		                     	<a class="text-white dropdown-item display-4" href="/logout">Sair</a>
+		                     </div>
+		                </li>
+		                
+		           	</ul>
+		        </div>
+		    </nav>
+		</section>
+		
+		<section class="engine"><a href="https://mobirise.info/a">online website builder</a></section><section class="mbr-section content5 cid-rHIn4jiyjP mbr-parallax-background" id="content5-w">
+		
+		    
+		
+		    <div class="mbr-overlay" style="opacity: 0.9;"><div id="rgb"></div>
+		    </div>
+		
+		    <div class="container">
+		        <div class="media-container-row">
+		            <div class="title col-12 col-md-8">
+		                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1"><em>Autenticar Voucher</em></h2>
+		                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5"></h3>
+		                
+		                
+		            </div>
+		        </div>
+		    </div>
+		</section>
+		
+		<section class="services1 cid-rIekDMgeHc" id="services1-17">
+
+        <div class="page-header text-center">
+	        <div class="container" id="QR-Code">
+	            <div class="panel panel-info">
+	                
+	                <div class="panel-body text-center">
+	                    <div class="col-md-12">
+	                        <div class="col-md-6">
+	                            <div class="well" >
+	                                <label for="">Camera</label><br> 
+	                                <div style=" position: relative;display: inline-block;">
+	                                    <canvas width="420px" height="340px" id="webcodecam-canvas"></canvas>
+	                                    <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
+	                                    <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
+	                                    <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
+	                                    <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+	                                </div><br>
+	                                <div>
+	                                    <div class="panel-heading">
+	                                        <div class="navbar-form navbar-center">
+	                                            <label for="">Trocar camera</label><br>
+	                                            <select class="form-control" id="camera-select"></select><br><br>
+	                    
+	                                            <div class="form-group">
+	                                                <button title="Decode Image" class="btn btn-default btn-sm" id="decode-img" type="button" data-toggle="tooltip">Escanear uma imagem <span class="glyphicon glyphicon-upload"></span></button>
+	                                                <button title="Image shoot" class="btn btn-info btn-sm disabled" id="grab-img" type="button" data-toggle="tooltip" style="visibility: hidden"><span class="glyphicon glyphicon-picture"></span></button>
+	                                                <button title="Play" class="btn btn-success btn-sm" id="play" type="button" data-toggle="tooltip">Iniciar <span class="glyphicon glyphicon-play"></span></button>
+	                                                <button title="Pause" class="btn btn-warning btn-sm" id="pause" type="button" data-toggle="tooltip" style="visibility: hidden"><span class="glyphicon glyphicon-pause"></span></button>
+	                                                <button title="Stop streams" class="btn btn-danger btn-sm" id="stop" type="button" data-toggle="tooltip">Parar <span class="glyphicon glyphicon-stop"></span></button>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="well">
+	                                    <label id="zoom-value" width="100">Zoom da camera: 2</label>
+	                                    <input id="zoom" onchange="Page.changeZoom();" type="range" min="10" max="30" value="20">
+	                                </div>
+	                            </div>
+	                            
+	                        </div>  
+	                        <div class="col-md-6">
+	                            <div class="thumbnail" id="result">
+	                                <div class="well" style="overflow: hidden;">
+	                                    <label for="">Imagem Escaneada</label><br>   
+	                                    <img width="420px" height="340px" id="scanned-img" src=""><br><br>  
+	                                    <div class="caption">
+	                                        <h3>Resultado do scanner</h3>
+	                                        <p id="scanned-QR"></p>
+	                                    </div>
+	                                </div>
+	                                
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	            </div>
+	        </div>
+        </div>
+        
+        </section>
+		
+		<section class="cid-rIetTk9Awm" id="footer5-1a">
+		
+		    <div class="container">
+		        <div class="media-container-row">
+		            <div class="col-md-3">
+		                <div class="media-wrap">
+		                    <a href="https://mobirise.co/">
+		                       <img src="/images/logo22.png" alt="Mobirise">
+		                    </a>
+		                </div>
+		            </div>
+		            <div class="col-md-9">
+		                <p class="mbr-text align-right links mbr-fonts-style display-7"><a th:href="|/homeRest/${session.restauranteLogado.idRestaurante}|" class="text-black">HOME</a>
+		            </div>
+		        </div>
+		        <div class="footer-lower">
+		            <div class="media-container-row">
+		                <div class="col-md-12">
+		                    <hr>
+		                </div>
+		            </div>
+		            <div class="media-container-row mbr-white">
+		                <div class="col-md-6 copyright">
+		                    <p class="mbr-text mbr-fonts-style display-7">
+		                        © Copyright 2019 BeSoftware - All Rights Reserved
+		                    </p>
+		                </div>
+		                <div class="col-md-6">
+		                    <div class="social-list align-right">
+		                        <div class="soc-item">
+                            <a href="https://besoftware9.wixsite.com/be-software" target="_blank">
+                                <span class="mbr-iconfont mbr-iconfont-social mbrib-sites"></span>
+                            </a>
+	                        </div>
+	                        <div class="soc-item">
+	                            <a href="#">
+	                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+	                            </a>
+	                        </div>
+	                        <div class="soc-item">
+	                            <a href="#" >
+	                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+	                            </a>
+	                        </div>
+	                        <div class="soc-item">
+	                            <a href="#" >
+	                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+	                            </a>
+	                        </div>
+	                        <div class="soc-item">
+	                            <a href="#" >
+	                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
+	                            </a>
+	                        </div>
+	                        <div class="soc-item">
+	                            <a href="#" >
+	                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
+	                            </a>
+	                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section>
+	</div>
+	<!-- ELSE -->
+	<div th:unless="${session.restauranteLogado}">
+	   <section class="page_404">
+	    <div class="container2">
+	        <div class="row">   
+	            <div class="col-sm-12">
+	                <div class="col-sm-10 col-sm-offset-1  text-center">
+	                    <div class="four_zero_four_bg">
+	                        <h1 class="text-center ">404</h1>
+	                    </div>
+	                    
+	                    <div class="contant_box_404">
+	                        <h3 class="h2">
+	                        Pagina não encontrada
+	                        </h3>
+	                        
+	                        <p>Clique no botão abaixo e volte para a home!</p>
+	                        
+	                        <a href="/index" class="link_404">Ir para a Home</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+		</section>
+	</div>
+		<script src="/web/assets/jquery/jquery.min.js"></script>
+		<script src="/popper/popper.min.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/smoothscroll/smooth-scroll.js"></script>
+		<script src="/tether/tether.min.js"></script>
+		<script src="/dropdown/js/nav-dropdown.js"></script>
+		<script src="/dropdown/js/navbar-dropdown.js"></script>
+		<script src="/touchswipe/jquery.touch-swipe.min.js"></script>
+		<script src="/parallax/jarallax.min.js"></script>
+		<script src="/theme/js/script.js"></script>
+	
+		<!-- QR -->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="/qr/js/filereader.js"></script>
+		<script type="text/javascript" src="/qr/js/qrcodelib.js"></script>
+		<script type="text/javascript" src="/qr/js/webcodecamjs.js"></script>
+		<script type="text/javascript" src="/qr/js/main.js"></script>
+		
+	
+    </body>
+</html>

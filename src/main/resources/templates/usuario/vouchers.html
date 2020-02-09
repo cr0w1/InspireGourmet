@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="/images/logo2.png" type="image/x-icon">
+  <meta name="description" content="Website Builder Description">
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="/tether/tether.min.css">
+  <link rel="stylesheet" href="/dropdown/css/style.css">
+  <link rel="stylesheet" href="/socicon/css/styles.css">
+  <link rel="stylesheet" href="/theme/css/style.css">
+  <link rel="preload" as="style" href="/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="/mobirise/css/mbr-additional.css" type="text/css">
+  
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/a35f1a6e09.js"></script>
+
+  <link rel="stylesheet" href="/css/homeUser/restaurants.css">
+  <link rel="stylesheet" href="/css/homeUser/cards.css">
+    <link rel="stylesheet" href="/css/homeUser/card2.css">
+  <link rel="stylesheet" href="/css/homeUser/style.css">
+  <link rel="stylesheet" href="/css/404.css">
+  <script src="/js/page3.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+</head>
+<body>
+
+	<div th:unless="${session.usuarioLogado}">
+		 <section class="page_404">
+		    <div class="container2">
+		        <div class="row">   
+		            <div class="col-sm-12">
+		                <div class="col-sm-10 col-sm-offset-1  text-center">
+		                    <div class="four_zero_four_bg">
+		                        <h1 class="text-center ">404</h1>
+		                    </div>
+		                    
+		                    <div class="contant_box_404">
+		                        <h3 class="h2">
+		                        Pagina não encontrada
+		                        </h3>
+		                        
+		                        <p>Clique no botão abaixo e volte para a home!</p>
+		                        
+		                        <a href="/index" class="link_404">Ir para a Home</a>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+	    	</div>
+			</section>
+	</div>
+	<div th:if="${session.usuarioLogado}">
+	
+
+
+  <section class="menu cid-rIdJm2Bp7s" once="menu" id="menu1-14">
+  	<span id="mensagemErro" th:text="${mensagemErro}" hidden></span>
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="/home">
+                         <img src="/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="/home">
+                        Inspire</a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="/home"><span class="icon mbrib-home mbr-iconfont mbr-iconfont-btn"></span>
+                        Home &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+                </li>
+  				
+  				<li class="nav-item dropdown">
+        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false"><img id="img" src="/images/table-1469719_960_720.jpg"/>&nbsp; 
+                      <span th:text="${session.usuarioLogado.nomeUsuario}" class="icon " style="font-size: 16px;"></span>&nbsp; &nbsp;</a>
+                     <div class="dropdown-menu">
+                     	<a class="text-white dropdown-item display-4" th:href="|/edite/${session.usuarioLogado.idUsuario}|">Perfil</a>
+                     	<a class="text-white dropdown-item display-4" th:href="|/Meus/Vouchers/${session.usuarioLogado.hashId}|">Meus Vouchers</a>
+                     	<a class="text-white dropdown-item display-4" th:href="|/senha/${session.usuarioLogado.hashId}|">Redefinir senha</a>
+                     	<a class="text-white dropdown-item display-4" href="/logout">Sair</a>
+                     </div>
+                </li>
+                
+           	</ul>
+        </div>
+    </nav>
+</section>
+
+<section class="engine"><a href="https://mobirise.info/a">online website builder</a></section><section class="mbr-section content5 cid-rHIn4jiyjP mbr-parallax-background" id="content5-w">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.9;"><div id="rgb"></div>
+    </div>
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1"><em>Restaurantes</em></h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5"></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services1 cid-rIekDMgeHc" id="services1-17">
+
+    <input id="btn-Preview-Image" type="button" value="Preview"/>
+    <a id="btn-Convert-Html2Image" href="#">Download</a>
+    <br/>
+    <h3>Preview :</h3>
+    <div id="previewImage">
+    </div>
+
+    <!--Overlay-->
+    <div id="espaco1"></div>
+    <!--Container-->
+    <div class="container">
+		
+		<div class="row">
+			<figure class="snip1515 col-4 " th:each="list : ${vouchers}" id="html-content-holder" >
+			  <div class="profile-image"><img th:src="|/qrcode/${list.hashCode}|" alt="sample47"/></div>
+			  <figcaption>
+			    <h3>Fleece Marigold</h3>
+			    <h4 th:text="${list.id}">Founder</h4>
+			    <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
+			    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
+			      <a href="#"> <i class="ion-social-twitter"></i></a>
+			      <a href="#"> <i class="ion-social-vimeo"></i></a>
+			    </div>
+			  </figcaption>
+			</figure>
+		</div>
+
+    </div>
+</section>
+
+<section class="cid-rIh3HwhxOm" id="footer5-1k">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="/home">
+                       <img src="/images/logo2.png" alt="Mobirise">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="mbr-text align-right links mbr-fonts-style display-7"><a href="/home" class="text-black">HOME</a></p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-md-6 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        © Copyright 2019 BeSoftware - All Rights Reserved
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-list align-right">
+                        <div class="soc-item">
+                            <a href="https://besoftware9.wixsite.com/be-software" target="_blank">
+                                <span class="mbr-iconfont mbr-iconfont-social mbrib-sites"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="#">
+                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="#" >
+                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="#" >
+                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="#" >
+                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="#" >
+                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+	</div>
+	<script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
+	<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+  <script src="/web/assets/jquery/jquery.min.js"></script>
+  <script src="/popper/popper.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/smoothscroll/smooth-scroll.js"></script>
+  <script src="/tether/tether.min.js"></script>
+  <script src="/dropdown/js/nav-dropdown.js"></script>
+  <script src="/dropdown/js/navbar-dropdown.js"></script>
+  <script src="/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="/parallax/jarallax.min.js"></script>
+  <script src="/theme/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>  
+	<script>
+		$(document).ready(function(){
+
+		
+		var element = $("#html-content-holder"); // global variable
+		var getCanvas; // global variable
+		 
+		    $("#btn-Preview-Image").on('click', function () {
+		         html2canvas(element, {
+		         onrendered: function (canvas) {
+		                getCanvas = canvas;
+		             }
+		         });
+		         
+		    });
+
+			$("#btn-Convert-Html2Image").on('click', function () {
+				$().val();
+				
+				
+				$("#btn-Preview-Image").click();
+				
+			    var imgageData = getCanvas.toDataURL("image/png");
+			    // Now browser starts downloading it instead of just showing it
+			    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+			    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+			    
+			});
+
+		});
+	</script>  
+</body>
+</html>
