@@ -142,39 +142,67 @@
                                         <input type="text" placeholder="Ex:00.000.000/0000-00" data-mask="00.000.000/0000-00" id="cnpj" th:value="${cnpj}"  th:field="*{cnpj}"/>
                                      </div>
                                      
-                                     <div class=" col-md-12" hidden>
+                                     <div class=" col-md-12">
+                                     	<div class="row">
+	                                     	<div class=" col-md-3">
+	                                     		<label>Horario de abertura.</label>
+	                                     		<input type="time" th:field="*{horaAbertura}">
+	                                     	</div>
+	                                     	<div class=" col-md-3">
+	                                     		<label>Horario de Fechamento.</label>
+	                                     		<input type="time" th:field="*{horaFechamento}">
+	                                     	</div>
+	                                     	<div class="col-md-6"><div id="espaco4"></div>
+	                                     		<div id="espaco1"></div>
+	                                     		<div id="espaco1"></div>
+		                                       <select class="browser-default custom-select" th:field="*{categoria}">
+		                                       	<option value="0" selected>Categoria do restaurante</option>
+		                                       	<option th:each="categoria : ${categorias}" th:value="${categoria.nomeCategoria}" th:text="${categoria.nomeCategoria}"></option>
+		                                       </select>
+		                                     </div>
+	                                     </div>
+                                     </div>
+                                     
+                                     <div class=" col-md-12">
                                      	<div class="row">
                                      		<div class=" col-md-12">
+	                                     		<div id="espaco1"></div>
+	                                     		<div id="espaco1"></div>
                                      			<label>Dias Ulties</label>
+                                     			<div id="espaco1"></div>
+                                     			<div id="espaco1"></div>
                                      		</div>
 		                                     <div class=" col-md-12">
-		                                     
-		                                      	<div class="row">
-		                                      		<div class=" col-md-12">
-		                                      			<label>Almoço</label>
-		                                      		</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     </div>
+		                                     	<div class="row">
+			                                    	 <div class=" col-md-12">
+			                                      		<label>Almoço</label>
+			                                      	 </div>
+			                                    	 <table class="table col-md-12" style="color: black">
+														  <thead>
+														    <tr>
+														      <th scope="col">D</th>
+														      <th scope="col">S</th>
+														      <th scope="col">T</th>
+														      <th scope="col">Q</th>
+														      <th scope="col">Q</th>
+														      <th scope="col">S</th>
+														      <th scope="col">S</th>
+														    </tr>
+														  </thead>
+														  <tbody>
+														    <tr>
+														      <td><input type="checkbox" th:field="*{dA}"></td>
+														      <td><input type="checkbox" th:field="*{sA}"></td>
+														      <td><input type="checkbox" th:field="*{tA}"></td>
+														      <td><input type="checkbox" th:field="*{qA}"></td>
+														      <td><input type="checkbox" th:field="*{qiA}"></td>
+														      <td><input type="checkbox" th:field="*{sxA}"></td>
+														      <td><input type="checkbox" th:field="*{saA}"></td>
+														    </tr>
+														  </tbody>
+														  
+													</table>
+												</div>
 		                                     </div>
 		                                     
 		                                     <div class=" col-md-12">
@@ -183,55 +211,43 @@
 		                                      		<div class=" col-md-12">
 		                                      			<label>Jantar</label>
 		                                      		</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
-			                                     	<div class=" col-md-2">
-			                                     		<input type="checkbox">
-			                                     	</div>
+			                                     	<table class="table col-md-12" style="color: black">
+														  <thead>
+														    <tr>
+														      <th scope="col">D</th>
+														      <th scope="col">S</th>
+														      <th scope="col">T</th>
+														      <th scope="col">Q</th>
+														      <th scope="col">Q</th>
+														      <th scope="col">S</th>
+														      <th scope="col">S</th>
+														    </tr>
+														  </thead>
+														  <tbody>
+														    <tr>
+														      <td><input type="checkbox" th:field="*{dJ}"></td>
+														      <td><input type="checkbox" th:field="*{sJ}"></td>
+														      <td><input type="checkbox" th:field="*{tJ}"></td>
+														      <td><input type="checkbox" th:field="*{qJ}"></td>
+														      <td><input type="checkbox" th:field="*{qiJ}"></td>
+														      <td><input type="checkbox" th:field="*{sxJ}"></td>
+														      <td><input type="checkbox" th:field="*{saJ}"></td>
+														    </tr>
+														  </tbody>
+													</table>
 			                                     </div>
 		                                     </div>
 	                                     </div>
 	                                 </div>
                                      
-                                     <div class=" col-md-12" hidden>
-                                     	<div class="row">
-	                                     	<div class=" col-md-12">
-	                                     		<label>Horario de abertura.</label>
-	                                     		<input type="time">
-	                                     	</div>
-	                                     	<div class=" col-md-12">
-	                                     		<label>Horario de Fechamento.</label>
-	                                     		<input type="time">
-	                                     	</div>
-	                                     </div>
-                                     </div>
-                                     
                                      <div class=" col-md-6">
+                                     	<div id="espaco1"></div>
+                                     	<div id="espaco1"></div>
                                     	<label class="float-left">CEP</label>
                                         <input type="text" placeholder="Ex:00000-000" data-mask="00000-000" id="cep" name="cep"/>
                                      </div>
                                      
-                                     <div class="col-md-6"><div id="espaco4"></div>
-                                       <select class="browser-default custom-select" th:field="*{categoria}">
-                                       	<option value="0" selected>Categoria do restaurante</option>
-                                       	<option th:each="categoria : ${categorias}" th:value="${categoria.nomeCategoria}" th:text="${categoria.nomeCategoria}"></option>
-                                       </select>
+                                     <div class=" col-md-6">
                                      </div>
                                      
                                      <div class=" col-md-6">

@@ -21,7 +21,7 @@ public class BtnController {
 	
 	@Autowired
 	private OfertaService serviceOferta;
-
+	
 	@GetMapping("/index")
 	public String index() {
 		return "index";
@@ -58,6 +58,9 @@ public class BtnController {
 		
 		Oferta oferta = serviceOferta.get(idRest);
 		model.addAttribute("oferta", oferta);
+		
+		List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(restaurante.getCategoria());
+		model.addAttribute("restaurantes", listRestaurante);
 		
 		return "usuario/detalhesRestaurante";
 	}

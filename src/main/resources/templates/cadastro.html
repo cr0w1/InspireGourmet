@@ -27,7 +27,7 @@
 
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>		
 
-	
+		<script src="/js/usuario/code.js"></script>
 	
     <script>
         $(document).ready(function(){
@@ -92,8 +92,6 @@
     <link rel="stylesheet" href="/css/logins/login.css">
     <link rel="stylesheet" href="/css/page5.css">
            
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <section class="menu cid-rIdJm2Bp7s" once="menu" id="menu1-14">
@@ -145,13 +143,14 @@
                         <div class="container1 col-md-12" id="container1">
                                 <div id="espaco1"></div>    
                                 <h1>Informe seus dados!</h1>
-                                <div class="social-container">
-                                    <div class="g-signin2 container col-md-6" data-onsuccess="onSignIn" data-width="340" data-height="40" data-longtitle="true"></div>
-                                </div>
-                                <div class="barra container"></div>
-                                <div id="espaco1"></div>
+                                
                                 <div class="container">
                                 	<form name="formUsuario" id="formUsuario" th:action="@{/salvarUsuario}" th:object="${usuario}" method="post" enctype="multipart/form-data">
+	                                    <div class="social-container">
+		                                   <label for="file"><img id="img" src="/images/logo2.png" class="img-fluid col-6"></label>
+		                                </div>
+		                                <div class="barra container"></div>
+		                                <div id="espaco1"></div>
 	                                    <div class="row align-center">
 	                                        <div class="mbr-white col-md-12">
 	                                        	<label style="color: black; float: left;">Nome Completo</label>
@@ -176,6 +175,8 @@
 	                                            <button class="align-center" name="enviar" id="enviar" type="submit">Finalizar assinatura</button>
 	                                        </div>
 	                                        <div id="espaco1" class="col-md-12"></div> 
+	                                         <!-- input file da imagem -->
+                      						<input class="invisible" type="file" id="file" name="imgUser" accept="image/jpeg, image/jpg"  multiple hidden/>
 	                                    </div>
 	                                </form>
                                 </div>

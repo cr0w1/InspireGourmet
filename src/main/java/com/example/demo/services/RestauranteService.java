@@ -24,7 +24,8 @@ public class RestauranteService {
 	private CategoriaDAO cateRepository;
 	
 	public List<Restaurante> listAll(){
-		return repository.findAll();
+		Integer ativo = 1;
+		return repository.listAll(ativo);
 	}
 	
 	public void save(Restaurante restaurante) {
@@ -61,16 +62,12 @@ public class RestauranteService {
 		return repository.findByHashId(hashId);
 	}
 
-	public List<Restaurante> listRestaurante(String pesquisa) {
-		return repository.buscarRestaurantes(pesquisa);
-	}
-
 	public List<Restaurante> listRestauranteCate(String cate) {
-		
+		Integer ativo = 1;
 		Boolean categoria = cateRepository.buscarPorNome(cate) == null;
-		System.out.println(categoria);
+		
 		if(categoria != true) {
-			return repository.buscarPorNomeCate(cate);
+			return repository.buscarPorNomeCate(cate,ativo);
 		}else {			
 			return repository.findAll();
 		}
@@ -87,6 +84,11 @@ public class RestauranteService {
 		restaurante.setSaltera(0);
 		
 		repository.save(restaurante);
+	}
+
+	public List<Restaurante> pesquisa(String pesquisa) {
+		Integer ativo = 1;
+		return repository.pesquisa(pesquisa,ativo);
 	}
 }
 

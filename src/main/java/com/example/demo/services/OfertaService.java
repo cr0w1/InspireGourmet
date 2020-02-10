@@ -33,4 +33,8 @@ public class OfertaService {
 		repository.deletePorIdRest(idRest);
 	}
 
+	public Oferta pegarPorId(Integer idOferta) {
+		return repository.buscarPorId(idOferta);
+	}
+
 }

@@ -21,14 +21,21 @@
   <link rel="stylesheet" href="/socicon/css/styles.css">
   <link rel="stylesheet" href="/dropdown/css/style.css">
   <link rel="stylesheet" href="/theme/css/style.css">
-  <link rel="preload" as="style" href="/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="/mobirise/css/mbr-additional.css" type="text/css">
   
+  <link rel="stylesheet" href="/css/homeUser/cards.css">
+  <link rel="preload" as="style" href="/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="/mobirise/css/mbr-additional.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://use.fontawesome.com/a35f1a6e09.js"></script>
   
   <link rel="stylesheet" href="/css/detales/detalhes.css">
   <link rel="stylesheet" href="/css/404.css">
   
+    <!-- jquery -->
 
+  <script src="/js/page3.js"></script>
+	<!-- CAROUSEL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
   <div th:unless="${session.usuarioLogado}">
@@ -128,32 +135,32 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="media mb-3">
+                <div class="media mb-3" style="margin-left: 80px">
                     <div class="card-img align-self-center">
                         <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
                     </div>
                     <h4 class="card-title media-body py-3 mbr-fonts-style display-7">Telefone</h4>
                 </div>
-                <div class="card-box">
+                <div class="card-box" style="margin-left: 70px">
                     <p class="mbr-text mbr-fonts-style display-7" th:text="${restaurante.telefone}"></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p><p></p>
                 </div>
             </div>
 
             <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="media mb-3">
+                <div class="media mb-3" style="margin-left: 80px">
                     <div class="card-img align-self-center">
                         <span class="mbr-iconfont mobi-mbri-hot-cup mobi-mbri"></span>
                     </div>
                     <h4 class="card-title media-body py-3 mbr-fonts-style display-7">
                         Cozinha</h4>
                 </div>
-                <div class="card-box">
+                <div class="card-box" style="margin-left: 80px">
                     <p class="mbr-text mbr-fonts-style display-7" th:text="${restaurante.categoria}"></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></p><p></p>
                 </div>
             </div>
 
             <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="media mb-3">
+                <div class="media mb-3" style="margin-left: 80px">
                     <div class="card-img align-self-center">
                         <span class="mbr-iconfont mbrib-pin"></span>
                     </div>
@@ -183,23 +190,23 @@
                     <tbody>
                       <tr>
                         <th scope="row">ALMOÇO</th>
-                        <td></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.dA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.sA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.tA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.qA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.qiA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.sxA} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.saA} ? 1"></i></td>
                       </tr>
                       <tr>
                         <th scope="row">JANTAR</th>
-                        <td></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td><i class="fa fa-star" aria-hidden="true"></i></td>
-                        <td></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.dJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.sJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.tJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.qJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.qiJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.sxJ} ? 1"></i></td>
+                        <td><i class="fa fa-star" aria-hidden="true" th:if="${restaurante.saJ} ? 1"></i></td>
                       </tr>
                     </tbody>
                   </table>
@@ -230,7 +237,7 @@
     <div class="container">
         <div class="inner-container" style="width: 100%;">
             <hr class="line" style="width: 25%;">
-            <div class="section-text align-center mbr-fonts-style display-5">
+            <div class="section-text align-center mbr-fonts-style display-5" th:text="${oferta.sobre}">
                     Mobirise is one of the easiest website development tools available today. It also gives you the freedom to develop as many websites as you like given the fact that it is a desktop app.Mobirise is one of the easiest website development tools available today. It also gives you the freedom to develop as many websites as you like given the fact that it is a desktop appMobirise is one of the easiest website development tools available today. It also gives you the freedom to develop as many websites as you like given the fact that it is a desktop appMobirise is one of the easiest website development tools available today. It also gives you the freedom to develop as many websites as you like given the fact that it is a desktop app<br>
                 </div>
             <hr class="line" style="width: 25%;">
@@ -240,99 +247,48 @@
 
 <section class="services1 cid-rIhgloUHCM" id="services1-1p">
     <!---->
-    
-    <!---->
-    <!--Overlay-->
-    
     <!--Container-->
     <div class="container">
         <div class="row justify-content-center">
             <!--Titles-->
             <div class="title pb-5 col-12">
-                <h2 class="align-left pb-3 mbr-fonts-style display-1"><strong>Restaurantes proxímos</strong></h2>
+                <h2 class="align-left pb-3 mbr-fonts-style display-1"><strong>Restaurantes Relacionados</strong></h2>
                 
             </div>
-            <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="/images/depositphotos-18843809-stock-photo-italian-pasta-with-tomato-sauce-696x479.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style display-5">
-                            Watch Star
-                        </h4>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium dolores doloribus
-                            eligendi eum illo placeat quis repellendus sequi tempore!
-                        </p>
-                        <!--Btn-->
-                        <div class="mbr-section-btn align-left"><a href="/detalhes" class="btn btn-warning-outline display-4">Ver +</a></div>
-                    </div>
+            
+            <div class="owl-carousel">
+	            <!--Card-1-->
+            	<div  th:each="list : ${restaurantes}">
+	               	<div class="news shadow">
+	                	 	<div class="img-figure">
+	                    	<div class="cat" th:text="${list.categoria}" >Cozinha</div>
+	                   	<img th:src="@{/images/table-1469719_960_720.jpg}" class="img-fluid">
+	                 	</div>	
+	       		
+	                  <div class="title">
+	                    <span th:text="${list.nomeRestaurante}"> DAL 20/10/2017 AL 24/10/2017</span>
+	                    <h1 th:text="${list.nomeRestaurante}">LF A HOST</h1>
+	                  </div>
+	                  <p class="description">
+	                    LF espone alla nuova edizione di HOST si svolgerà a Milano dal 20 al 24 ottobre 2017.
+	                  </p>
+	        
+	                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">
+	                    <a style="border-radius: 30px;font-size: 16px;" href="/detalhe">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+	                  </p>
+	                </div>
                 </div>
-            </div>
-            <!--Card-2-->
-            <div class="card col-12 col-md-6 p-3 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="/images/depositphotos-11921524-stock-photo-chicken-salad-2-696x464.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style display-5">
-                            Watch Special
-                        </h4>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium dolores doloribus
-                            eligendi eum illo placeat quis repellendus sequi tempore!
-                        </p>
-                        <!--Btn-->
-                        <div class="mbr-section-btn align-left"><a href="/detalhes" class="btn btn-warning-outline display-4">Ver +</a></div>
-                    </div>
-                </div>
-            </div>
-            <!--Card-3-->
-            <div class="card col-12 col-md-6 p-3 col-lg-4 last-child">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="/images/depositphotos-23899891-stock-photo-salmon-steak-696x464.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style display-5">
-                            Watch Srong
-                        </h4>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium dolores doloribus
-                            eligendi eum illo placeat quis repellendus sequi tempore!
-                        </p>
-                        <!--Btn-->
-                        <div class="mbr-section-btn align-left"><a href="/detalhes" class="btn btn-warning-outline display-4">Ver +</a></div>
-                    </div>
-                </div>
-            </div>
-            <!--Card-4-->
+			
+	        </div>
+			<div>	
+	        	<span th:text="${nada}" style="font-size: 20px; margin-left: 35%"></span>
+	        </div>
             
         </div>
     </div>
 </section>
 
-<section class="mbr-section content8 cid-rIhgvgiuEf" id="content8-1q">
-
-    
-
-    <div class="container">
-        <div class="media-container-row title">
-            <div class="col-12 col-md-8">
-                <div class="mbr-section-btn align-center"><a class="btn btn-primary display-4" href="/page3">Ver todos restaurantes em Recife</a></div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="cid-rIh3HwhxOm" id="footer5-1k">
-
-    
-
-    
 
     <div class="container">
         <div class="media-container-row">
@@ -410,6 +366,38 @@
   <script src="/dropdown/js/navbar-dropdown.js"></script>
   <script src="/theme/js/script.js"></script>
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   
+  <script>
+  
+  	$(document).ready(function(){
+  		var owl = $('.owl-carousel');
+  		
+  		owl.owlCarousel({
+  		    items:2,
+  		    loop:true,
+  		    margin:10,
+  		 	autoplay:true,
+	  	    autoplayTimeout:4000,
+	  	    autoplayHoverPause:true,
+		  	responsiveClass:true,
+		    responsive:{
+		        0:{
+		            items:1,
+		            nav:true
+		        },
+		        600:{
+		            items:2,
+		            nav:false
+		        },
+		        1000:{
+		            items:3,
+		            nav:false
+		        }
+		    }
+  		});
+	});
+  
+  </script>
 </body>
 </html>

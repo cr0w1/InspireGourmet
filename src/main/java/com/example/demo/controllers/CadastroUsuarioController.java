@@ -1,18 +1,24 @@
 package com.example.demo.controllers;
 
+import java.io.IOException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.email.Mailer;
+import com.example.demo.models.Imagem;
 import com.example.demo.models.Usuario;
+import com.example.demo.services.ImagemService;
 import com.example.demo.services.UsuarioService;
 import com.example.demo.util.Functions;
 
@@ -21,6 +27,9 @@ public class CadastroUsuarioController {
 	
 	@Autowired
 	private UsuarioService serviceUser;
+	
+	@Autowired 
+	private ImagemService serviceImagem;
 	
 	@Autowired
 	private Mailer mail;
@@ -34,7 +43,7 @@ public class CadastroUsuarioController {
 	}
 	
 	@PostMapping("/salvarUsuario" )
-	public String cadUsu(Usuario usuario , Model model,RedirectAttributes ra) {
+	public String cadUsu(Usuario usuario ,@RequestParam("imgUser") MultipartFile file, Model model,RedirectAttributes ra) {
 
 		//criptografando a senha
 		usuario.setSenha(Functions.getSHA256(usuario.getSenha()));
@@ -48,6 +57,19 @@ public class CadastroUsuarioController {
 		usuario.setSaltera(0);
 		
 		serviceUser.save(usuario);
+		
+		Imagem imagem = new Imagem();
+		imagem.setUsuario(usuario);
+		try {
+			imagem.setImagem(file.getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		serviceImagem.save(imagem);
+		
+		
 		mail.enviar(usuario);
 		
 		ra.addFlashAttribute("mensagemErro", "1");
@@ -56,6 +78,15 @@ public class CadastroUsuarioController {
 		
 	}
 	
+	//LIST OF IMAGE
+	@GetMapping("/imagem/{idUser}")
+	@ResponseBody
+	public byte[] exibirImagem(@PathVariable("idUser") Integer idUser) {
+		
+		Imagem imagem = serviceImagem.getImagem(idUser);
+		return imagem.getImagem();
+	}
+
 	@PostMapping("/verificationCPF")
 	@ResponseBody
 	public String valideCpf(@RequestParam(name = "cpf") String cpf) {

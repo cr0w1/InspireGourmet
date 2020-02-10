@@ -56,3 +56,19 @@ label {
 button {
 	cursor: pointer;
 }
+
+#img:hover{
+	cursor: pointer;
+	
+	}
+@media only screen and (min-width: 900px) {
+	#img{
+		width: 500px;
+		height: 220px;
+		border-radius: 50%;
+		align-content: center;
+	}
+	
+	
+}
+

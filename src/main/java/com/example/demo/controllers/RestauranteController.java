@@ -164,14 +164,92 @@ public class RestauranteController {
 		ModelAndView modelAndView= new ModelAndView("usuario/home");
 		
 		System.out.println(pesquisa);
-		if(pesquisa != "JAPONESA" || pesquisa != "Japonesa" || pesquisa != "japonesa") {
+		if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Japonesa")) {
 			
-			model.addAttribute("nada", "Nenhum Resultado Encontrado!!");
-			return modelAndView;
+			if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Coreana")) {
+				
+				if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Tailandesa")) {
+					
+					if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Indiana")) {
+						
+						if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Pizza")) {
+							
+							if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Italiana")) {
+								
+								if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Regional")) {
+									if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("")) {
+										
+											
+											List<Restaurante> listRestaurante = serviceRestaurante.pesquisa(pesquisa);
+											System.out.println(listRestaurante);
+											if(listRestaurante.isEmpty()) {
+												model.addAttribute("nada", "Nenhum Resultado Encontrado!!");
+												return modelAndView;
+											}else {
+												modelAndView.addObject("restaurantes", listRestaurante);
+												System.out.println("qqq");
+												return modelAndView;
+												
+											}
+										
+									}else {
+										List<Restaurante> listRestaurante = serviceRestaurante.listAll();
+										modelAndView.addObject("restaurantes", listRestaurante);
+										
+										return modelAndView;
+									}
+									
+								}else {
+									pesquisa = "Regional";
+									
+									List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+									modelAndView.addObject("restaurantes", listRestaurante);
+									
+									return modelAndView;
+								}
+							}else {
+								pesquisa = "Italiana";
+								
+								List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+								modelAndView.addObject("restaurantes", listRestaurante);
+								
+								return modelAndView;
+							}
+						}else {
+							pesquisa = "Pizza";
+							
+							List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+							modelAndView.addObject("restaurantes", listRestaurante);
+							
+							return modelAndView;
+						}
+					}else {
+						pesquisa = "Indiana";
+						
+						List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+						modelAndView.addObject("restaurantes", listRestaurante);
+						
+						return modelAndView;
+					}
+				}else {
+					pesquisa = "Tailandesa";
+					
+					List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+					modelAndView.addObject("restaurantes", listRestaurante);
+					
+					return modelAndView;
+				}
+			}else {
+				pesquisa = "Coreana";
+				
+				List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+				modelAndView.addObject("restaurantes", listRestaurante);
+				
+				return modelAndView;
+			}
 		}else {
 			pesquisa = "Japonesa";
 			
-			System.out.println("else");
 			List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
 			modelAndView.addObject("restaurantes", listRestaurante);
 			
@@ -180,6 +258,106 @@ public class RestauranteController {
 		
 		
 	}
+	@PostMapping("/pesquisa")
+	public ModelAndView pesquisa(@RequestParam(name = "pesquisa")String pesquisa,Model model) {
+		ModelAndView modelAndView= new ModelAndView("restaurantes");
+		
+		System.out.println(pesquisa);
+		if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Japonesa")) {
+			
+			if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Coreana")) {
+				
+				if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Tailandesa")) {
+					
+					if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Indiana")) {
+						
+						if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Pizza")) {
+							
+							if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Italiana")) {
+								
+								if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Regional")) {
+									if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("")) {
+										
+											
+											List<Restaurante> listRestaurante = serviceRestaurante.pesquisa(pesquisa);
+											System.out.println(listRestaurante);
+											if(listRestaurante.isEmpty()) {
+												model.addAttribute("nada", "Nenhum Resultado Encontrado!!");
+												return modelAndView;
+											}else {
+												modelAndView.addObject("restaurantes", listRestaurante);
+												System.out.println("qqq");
+												return modelAndView;
+												
+											}
+										
+									}else {
+										List<Restaurante> listRestaurante = serviceRestaurante.listAll();
+										modelAndView.addObject("restaurantes", listRestaurante);
+										
+										return modelAndView;
+									}
+									
+								}else {
+									pesquisa = "Regional";
+									
+									List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+									modelAndView.addObject("restaurantes", listRestaurante);
+									
+									return modelAndView;
+								}
+							}else {
+								pesquisa = "Italiana";
+								
+								List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+								modelAndView.addObject("restaurantes", listRestaurante);
+								
+								return modelAndView;
+							}
+						}else {
+							pesquisa = "Pizza";
+							
+							List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+							modelAndView.addObject("restaurantes", listRestaurante);
+							
+							return modelAndView;
+						}
+					}else {
+						pesquisa = "Indiana";
+						
+						List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+						modelAndView.addObject("restaurantes", listRestaurante);
+						
+						return modelAndView;
+					}
+				}else {
+					pesquisa = "Tailandesa";
+					
+					List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+					modelAndView.addObject("restaurantes", listRestaurante);
+					
+					return modelAndView;
+				}
+			}else {
+				pesquisa = "Coreana";
+				
+				List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+				modelAndView.addObject("restaurantes", listRestaurante);
+				
+				return modelAndView;
+			}
+		}else {
+			pesquisa = "Japonesa";
+			
+			List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(pesquisa);
+			modelAndView.addObject("restaurantes", listRestaurante);
+			
+			return modelAndView;
+		}
+		
+		
+	}
+	//FIM DA PESQUISA	S
 	
 	//LEITOR DE QR CODE
 	@GetMapping("/scanner/qr")

@@ -33,4 +33,8 @@ public class CategoriaService {
 	public Categoria get(Integer idCat) {
 		return repository.findById(idCat).get();
 	}
+	
+	public Categoria buscarPorNome(String nome) {
+		return repository.buscarPorNome(nome);
+	}
 }

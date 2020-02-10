@@ -13,18 +13,19 @@ public interface RestauranteDAO extends JpaRepository<Restaurante, Integer> {
 	@Query(value =  "select * from restaurante where email = ?1 AND senha = ?2", nativeQuery = true)
 	Restaurante buscalogin(String email, String senha);
 
-	@Query(value = "select * from restaurante where nome_restaurante like %?1%", nativeQuery = true)
-	List<Restaurante> buscarRestaurantes(String pesquisa);
-	
-	@Query(value = "select * from restaurante where id_categoria = ?1", nativeQuery = true)
-	List<Restaurante> buscarRestauranteCate(Integer idCat);
-
 	Restaurante findByHashId(String hashId);
 	Restaurante findByCnpj(String cnpj);
 	Restaurante findByEmail(String email);
 
-	@Query(value = "select * from restaurante where categoria = ?1", nativeQuery = true)
-	List<Restaurante> buscarPorNomeCate(String cate);
+	@Query(value = "select * from restaurante where categoria = ?1 AND ativo = ?2", nativeQuery = true)
+	List<Restaurante> buscarPorNomeCate(String cate ,Integer ativo);
+
+	@Query(value = "select * from restaurante where nome_restaurante like %?1% AND ativo = ?2", nativeQuery = true)
+	List<Restaurante> pesquisa(String pesquisa , Integer ativo);
 	
+	@Query(value = "select * from restaurante where ativo = ?1", nativeQuery = true)
+	List<Restaurante> listAll(Integer ativo);
 	
+	@Query(value = "select * from restaurante where ativo = ?1 ORDER BY RAND() ", nativeQuery = true)
+	List<Restaurante> buscarPor(String cate ,Integer ativo);
 }

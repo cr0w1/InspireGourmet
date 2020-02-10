@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.models.Oferta;
+import com.example.demo.models.Restaurante;
 import com.example.demo.models.Usuario;
 import com.example.demo.models.Voucher;
+import com.example.demo.services.OfertaService;
+import com.example.demo.services.RestauranteService;
 import com.example.demo.services.UsuarioService;
 import com.example.demo.services.VoucherService;
 import com.example.demo.util.QRGeneration;
@@ -24,19 +27,29 @@ public class VouncherController {
 
 	@Autowired
 	private UsuarioService serviceUser;
-//	
-//	@Autowired
-//	private RestauranteService serviceRestaurante;
+	
+	@Autowired
+	private RestauranteService serviceRestaurante;
 	
 	@Autowired
 	private VoucherService voucherService;
 	
+	@Autowired
+	private OfertaService serviceOferta;
+	
 	@GetMapping("/gerar/voucher/{idUser}/{idOferta}")
 	public String salvarVoucher(@PathVariable("idUser")Usuario idUser, @PathVariable("idOferta")Oferta idOferta,RedirectAttributes ra) {
+		
+		Usuario usuario = serviceUser.get(idUser.getIdUsuario());
+		Oferta oferta = serviceOferta.pegarPorId(idOferta.getIdOferta());
+		Restaurante restaurante = serviceRestaurante.get(oferta.getRestaurante().getIdRestaurante());
+		
 		
 		Voucher voucher = new Voucher();
 		voucher.setIdOferta(idOferta);
 		voucher.setIdUsuario(idUser);
+		voucher.setNomeUser(usuario.getNomeUsuario());
+		voucher.setNomeRest(restaurante.getNomeRestaurante());
 		
 		voucherService.save(voucher);
 		
