@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -12,14 +13,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.daos.UsuarioDAO;
 import com.example.demo.email.MailerPassword;
 import com.example.demo.models.Categoria;
+import com.example.demo.models.Imagem;
 import com.example.demo.models.Restaurante;
 import com.example.demo.models.Usuario;
 import com.example.demo.services.CategoriaService;
+import com.example.demo.services.ImagemService;
 import com.example.demo.services.RestauranteService;
 import com.example.demo.services.UsuarioService;
 import com.example.demo.util.Functions;
@@ -36,6 +40,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private CategoriaService serviceCategoria;
+	
+	@Autowired 
+	private ImagemService serviceImagem;
 	
 	@Autowired
 	private MailerPassword mail;
@@ -68,7 +75,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/updateUsuario" )
-	public String cadUsu(Usuario usuario,HttpSession session) {
+	public String cadUsu(Usuario usuario,@RequestParam("imgUser") MultipartFile file,HttpSession session,RedirectAttributes ra) {
 	
 		Usuario usuario1 = userDao.findByHashId(usuario.getHashId());
 			
@@ -76,10 +83,23 @@ public class UsuarioController {
 		usuario.setAtivo(usuario1.getAtivo());
 		usuario.setDataDeCriacao(usuario1.getDataDeCriacao());
 		usuario.setUltimoUpdate(new Date());
+		usuario.setPrioridade(1);
 		
 		serviceUser.save(usuario);
 		
+		Imagem imagem = serviceImagem.getImagem(usuario.getIdUsuario());
+		try {
+			imagem.setImagem(file.getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		if(!file.isEmpty()) {
+			serviceImagem.save(imagem);
+		}
+		
+		ra.addAttribute("mensagemErro", "2");
 		session.setAttribute("usuarioLogado", usuario);
 		return "redirect:/home";
 		

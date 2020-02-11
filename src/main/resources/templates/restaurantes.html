@@ -34,8 +34,8 @@
   <script src="/js/page3.js"></script>
   
 	  <!-- CAROUSEL -->
-      <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
-	  <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
   <section class="menu cid-rIdJm2Bp7s" once="menu" id="menu1-14">
@@ -72,7 +72,7 @@
                     <a class="nav-link link text-white display-4" href="/restaurantes"><span class="mobi-mbri mobi-mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
                         Restaurantes &nbsp;</a>
                 </li><li class="nav-item"><a class="nav-link link text-white display-4" href="/login" id="Log">Login <span id="Rgister" style="padding: 8px;border: 1px solid white;border-radius: 3px;margin-left: 2px;">Registro</span> &nbsp; &nbsp;&nbsp;</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="/assinatura">Assinar agora</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" data-toggle="tooltip" data-placement="bottom" title="Disponivel em breve!" href="">Assinar agora</a></div>
         </div>
     </nav>
 </section>
@@ -130,19 +130,19 @@
 		                	<div class="news shadow">
 		                 	 	<div class="img-figure">
 		                     	<div class="cat" th:text="${list.categoria}" >Cozinha</div>
-		                    	<img th:src="@{/images/table-1469719_960_720.jpg}" class="img-fluid">
+		                    	<img th:src="|/imagemR/${list.idRestaurante}|" class="img-fluid">
 		                  	</div>	
 		        		
 			                  <div class="title">
-			                    <span th:text="${list.nomeRestaurante}"> DAL 20/10/2017 AL 24/10/2017</span>
-			                    <h1 th:text="${list.nomeRestaurante}">LF A HOST</h1>
+			                    <span th:text="|${list.cidade}, ${list.bairro} - ${list.rua} - ${list.numero}|"> </span>
+			                    <h1 th:text="${list.nomeRestaurante}"></h1>
 			                  </div>
-			                  <p class="description">
-			                    LF espone alla nuova edizione di HOST si svolgerà a Milano dal 20 al 24 ottobre 2017.
+			                  <p class="description" >
+			                   	<span>Horario de abertura: <span th:text="${list.horaAbertura}"></span></span><br><span>Horario de fechamento: <span th:text="${list.horaFechamento}"></span></span>
 			                  </p>
 			        
 			                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">
-			                    <a style="border-radius: 30px;font-size: 16px;" href="/detalhe">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+			                    <a style="border-radius: 30px;font-size: 16px;" th:href="@{/detalhe/}+ ${list.idRestaurante}">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 			                  </p>
 			                </div>
 			              </div>
@@ -242,7 +242,7 @@
   <script src="/parallax/jarallax.min.js"></script>
   <script src="/theme/js/script.js"></script>
   
-  <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   
   <script>
   
@@ -273,7 +273,9 @@
 		    }
   		});
 	});
-  
+  	$(function () {
+  	  $('[data-toggle="tooltip"]').tooltip()
+  	})
   </script>
 </body>
 </html>

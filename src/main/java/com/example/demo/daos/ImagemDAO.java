@@ -9,5 +9,8 @@ public interface ImagemDAO extends JpaRepository<Imagem, Integer> {
 	
 	@Query(value =  "select * from imagem where id_usuario = ?1", nativeQuery = true)
 	Imagem buscarPorUser(Integer idUser);
+	
+	@Query(value =  "select * from imagem where id_restaurante = ?1", nativeQuery = true)
+	Imagem buscarPorRest(Integer idRest);
 
 }

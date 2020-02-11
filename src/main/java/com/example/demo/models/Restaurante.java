@@ -54,11 +54,9 @@ public class Restaurante {
 	
 	private int Saltera;
 	
-	@DateTimeFormat(pattern = "HH:mm")
-	private Date horaAbertura;
-	
-	@DateTimeFormat(pattern = "HH:mm")
-	private Date horaFechamento;
+	private String horaAbertura;
+
+	private String horaFechamento;
 
 	private Boolean dA;
 	
@@ -230,19 +228,21 @@ public class Restaurante {
 		return false;
 	}
 
-	public Date getHoraAbertura() {
+
+	
+	public String getHoraAbertura() {
 		return horaAbertura;
 	}
 
-	public void setHoraAbertura(Date horaAbertura) {
+	public void setHoraAbertura(String horaAbertura) {
 		this.horaAbertura = horaAbertura;
 	}
 
-	public Date getHoraFechamento() {
+	public String getHoraFechamento() {
 		return horaFechamento;
 	}
 
-	public void setHoraFechamento(Date horaFechamento) {
+	public void setHoraFechamento(String horaFechamento) {
 		this.horaFechamento = horaFechamento;
 	}
 

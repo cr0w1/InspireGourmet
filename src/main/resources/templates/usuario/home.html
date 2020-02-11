@@ -76,6 +76,11 @@
             	
             	$("#mensagemErro").text("");
             	break;
+            case "2":
+				toastr.success("Perfil Alterado com sucesso!");
+            	
+            	$("#mensagemErro").text("");
+            	break;
             case "5":
 				toastr.success("Senha Redefinida!");
             	
@@ -218,15 +223,15 @@
                 	<div class="news shadow">
                  	 	<div class="img-figure">
                      	<div class="cat" th:text="${list.categoria}">Cozinha</div>
-                    	<img th:src="@{/images/table-1469719_960_720.jpg}" class="img-fluid">
+                    	<img th:src="|/imagemR/${list.idRestaurante}|" class="img-fluid">
                   	</div>	
         		
 	                  <div class="title">
-	                    <span th:text="${list.nomeRestaurante}"> DAL 20/10/2017 AL 24/10/2017</span>
-	                    <h1 th:text="${list.nomeRestaurante}">LF A HOST</h1>
+	                    <span th:text="|${list.cidade}, ${list.bairro} - ${list.rua} - ${list.numero}|"> </span>
+	                    <h1 th:text="${list.nomeRestaurante}"></h1>
 	                  </div>
-	                  <p class="description">
-	                    LF espone alla nuova edizione di HOST si svolgerà a Milano dal 20 al 24 ottobre 2017.
+	                  <p class="description" >
+	                   	<span>Horario de abertura: <span th:text="${list.horaAbertura}"></span></span><br><span>Horario de fechamento: <span th:text="${list.horaFechamento}"></span></span>
 	                  </p>
 	        
 	                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">

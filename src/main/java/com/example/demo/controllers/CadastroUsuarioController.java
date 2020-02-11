@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +63,13 @@ public class CadastroUsuarioController {
 		Imagem imagem = new Imagem();
 		imagem.setUsuario(usuario);
 		try {
-			imagem.setImagem(file.getBytes());
+			if(!file.isEmpty()) {
+				byte[] arquivo = Files.readAllBytes( Paths.get("/assets/images/images.jpg") );
+				imagem.setImagem(arquivo);
+			}else {
+				imagem.setImagem(file.getBytes());
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -43,8 +43,17 @@ public class BtnController {
  		return "restaurantes";
 	}
 	
-	@GetMapping("/detalhe")
-	public String show4() {
+	@GetMapping("/detalhe/{id}")
+	public String show4(@PathVariable("id")Integer idRest,Model model) {
+		
+		Restaurante  restaurante = serviceRestaurante.get(idRest);
+		model.addAttribute("restaurante", restaurante);
+		
+		Oferta oferta = serviceOferta.get(idRest);
+		model.addAttribute("oferta", oferta);
+		
+		List<Restaurante> listRestaurante = serviceRestaurante.listRestauranteCate(restaurante.getCategoria());
+		model.addAttribute("restaurantes", listRestaurante);
 		return "detalhes";
 	}
 	

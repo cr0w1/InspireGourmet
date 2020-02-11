@@ -61,10 +61,22 @@ button {
 	cursor: pointer;
 	
 	}
+	
+	#imgR:hover{
+	cursor: pointer;
+	
+	}
 @media only screen and (min-width: 900px) {
 	#img{
 		width: 500px;
-		height: 220px;
+		height: 210px;
+		border-radius: 50%;
+		align-content: center;
+	}
+	
+	#imgR{
+		width: 500px;
+		height: 210px;
 		border-radius: 50%;
 		align-content: center;
 	}

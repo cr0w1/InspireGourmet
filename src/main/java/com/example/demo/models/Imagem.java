@@ -19,6 +19,10 @@ public class Imagem {
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
+	@OneToOne
+	@JoinColumn(name = "id_restaurante")
+	private Restaurante restaurante;
+	
 	@Lob
 	private byte[] imagem;
 
@@ -44,6 +48,14 @@ public class Imagem {
 
 	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
+	}
+
+	public Restaurante getRestaurante() {
+		return restaurante;
+	}
+
+	public void setRestaurante(Restaurante restaurante) {
+		this.restaurante = restaurante;
 	}
 	
 	

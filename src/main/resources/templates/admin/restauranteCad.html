@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="/css/logins/login.css">
     <link rel="stylesheet" href="/css/page5.css">
     <link rel="stylesheet" href="/css/404.css">
-           
+           <script src="/js/usuario/code.js"></script>
 </head>
 <body>
  <div th:unless="${session.adminLogado}">
@@ -121,10 +121,14 @@
                      <div class="container1 col-md-12" id="container1">
                              <div id="espaco1"></div>    
                              <h1>Informe seus dados!</h1>
+                             
+                             <div class="social-container">
+                                 <label for="file"><img id="imgR" src="/images/logo2.png" class="img-fluid col-6"></label>
+                              </div>
                              <div class="barra container"></div>
                              <div id="espaco1"></div>
                              <div class="container">
-                             	<form id="formRestaurante" name="formRestaurante" th:action="@{/savarRestaurante}" th:object="${restaurante}" method="post"> 
+                             	<form id="formRestaurante" name="formRestaurante" th:action="@{/savarRestaurante}" th:object="${restaurante}" method="post" enctype="multipart/form-data"> 
                                   <div class="row">
                                                                     	
                                      <div class=" col-md-12 mb-3">
@@ -295,6 +299,9 @@
                                          <button class="align-center" name="enviar" type="submit">Finalizar Cadastro</button>
                                      </div>
                                      <div id="espaco1" class="col-md-12"></div>
+                                     
+                                     <!-- input file da imagem -->
+                      				<input class="invisible" type="file" id="file" name="imgRest" accept="image/jpeg, image/jpg"  multiple hidden/>
                                   </div>
                                	</form>
                              </div>

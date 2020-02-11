@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,14 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.email.MailerRestaurante;
 import com.example.demo.models.Categoria;
+import com.example.demo.models.Imagem;
 import com.example.demo.models.Oferta;
 import com.example.demo.models.Restaurante;
 import com.example.demo.services.CategoriaService;
+import com.example.demo.services.ImagemService;
 import com.example.demo.services.OfertaService;
 import com.example.demo.services.RestauranteService;
 import com.example.demo.util.Functions;
@@ -35,6 +39,9 @@ public class RestauranteController {
 	
 	@Autowired
 	private OfertaService serviceOferta;
+	
+	@Autowired 
+	private ImagemService serviceImagem;
 	
 	@Autowired
 	private MailerRestaurante mail;
@@ -75,7 +82,7 @@ public class RestauranteController {
 	}
 	
 	@PostMapping("/savarRestaurante")
-	public String saveRestaurante(Restaurante restaurante,@RequestParam(name = "cep") String cep,@RequestParam(name = "bairro") String bairro,
+	public String saveRestaurante(Restaurante restaurante,@RequestParam("imgRest") MultipartFile file,@RequestParam(name = "cep") String cep,@RequestParam(name = "bairro") String bairro,
 			@RequestParam(name = "cidade") String cidade,@RequestParam(name = "numero") String numero,@RequestParam(name = "uf") String uf,RedirectAttributes ra) {
 		
 		//criptografando a senha
@@ -86,6 +93,19 @@ public class RestauranteController {
 		restaurante.setSaltera(0);
 		
 		serviceRestaurante.save(restaurante);
+		
+		Imagem imagem = new Imagem();
+		imagem.setRestaurante(restaurante);
+		try {
+			imagem.setImagem(file.getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		serviceImagem.save(imagem);
+		
+		
 		mail.enviar(restaurante);
 		
 		//save a new Oferta
@@ -99,6 +119,15 @@ public class RestauranteController {
 		
 	}
 	
+	//LIST OF IMAGE
+	@GetMapping("/imagemR/{idRest}")
+	@ResponseBody
+	public byte[] exibirImagem(@PathVariable("idRest") Integer idRest) {
+		
+		Imagem imagem = serviceImagem.getImagemRest(idRest);
+		return imagem.getImagem();
+	}
+
 	@PostMapping("/verificationCNPJ")
 	@ResponseBody
 	public String valideCnpj(@RequestParam(name = "cnpj") String cnpj) {

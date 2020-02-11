@@ -19,4 +19,8 @@ public class ImagemService {
 	public void save(Imagem imagem ) {
 		repository.save(imagem);
 	}
+
+	public Imagem getImagemRest(Integer idRest) {
+		return repository.buscarPorRest(idRest);
+	}
 }

@@ -9,8 +9,26 @@ $(function(){
         fileReader.readAsDataURL(file);
     });
 });
- 
-
+$(function(){
+    $('#file').change(function(){
+        const file = $(this)[0].files[0]
+        const fileReader = new FileReader()
+        fileReader.onloadend = function(){
+            $('#img1').attr('src', fileReader.result)
+        }
+        fileReader.readAsDataURL(file);
+    });
+});
+$(function(){
+    $('#file').change(function(){
+        const file = $(this)[0].files[0]
+        const fileReader = new FileReader()
+        fileReader.onloadend = function(){
+            $('#imgR').attr('src', fileReader.result)
+        }
+        fileReader.readAsDataURL(file);
+    });
+});
  
 //filtrando para que so seja enviadas imagens
 function Checkfiles(){

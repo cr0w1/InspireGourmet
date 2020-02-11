@@ -96,11 +96,11 @@
                         Home &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
                 </li>  				
   				<li class="nav-item dropdown">
-        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false"><img id="img" src="/images/table-1469719_960_720.jpg"/>&nbsp; 
+        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false"><img id="img" th:src="|/imagem/${session.usuarioLogado.idUsuario}|"/>&nbsp; 
                       <span th:text="${session.usuarioLogado.nomeUsuario}"></span>&nbsp; &nbsp;</a>
                      <div class="dropdown-menu">
                      	<a class="text-white dropdown-item display-4" th:href="|/edite/${session.usuarioLogado.idUsuario}|">Perfil</a>
-                     	<a class="text-white dropdown-item display-4">Meus Vouchers</a>
+                     	<a class="text-white dropdown-item display-4" th:href="|/Meus/Vouchers/${session.usuarioLogado.hashId}|">Meus Vouchers</a>
                      	<a class="text-white dropdown-item display-4" th:href="|/senha/${session.usuarioLogado.hashId}|">Redefinir senha</a>
                      	<a class="text-white dropdown-item display-4" href="/logout">Sair</a>
                      </div>
@@ -249,42 +249,42 @@
     <!---->
     <!--Container-->
     <div class="container">
-        <div class="row justify-content-center">
-            <!--Titles-->
-            <div class="title pb-5 col-12">
-                <h2 class="align-left pb-3 mbr-fonts-style display-1"><strong>Restaurantes Relacionados</strong></h2>
-                
-            </div>
-            
-            <div class="owl-carousel">
-	            <!--Card-1-->
-            	<div  th:each="list : ${restaurantes}">
-	               	<div class="news shadow">
-	                	 	<div class="img-figure">
-	                    	<div class="cat" th:text="${list.categoria}" >Cozinha</div>
-	                   	<img th:src="@{/images/table-1469719_960_720.jpg}" class="img-fluid">
-	                 	</div>	
-	       		
-	                  <div class="title">
-	                    <span th:text="${list.nomeRestaurante}"> DAL 20/10/2017 AL 24/10/2017</span>
-	                    <h1 th:text="${list.nomeRestaurante}">LF A HOST</h1>
-	                  </div>
-	                  <p class="description">
-	                    LF espone alla nuova edizione di HOST si svolgerà a Milano dal 20 al 24 ottobre 2017.
-	                  </p>
-	        
-	                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">
-	                    <a style="border-radius: 30px;font-size: 16px;" href="/detalhe">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
-	                  </p>
+	        <div class="row justify-content-center">
+	            <!--Titles-->
+	            <div class="title pb-5 col-12">
+	                <h2 class="align-left pb-3 mbr-fonts-style display-1"><strong>Restaurantes Relacionados</strong></h2>
+	                
+	            </div>
+	            
+	            <div class="owl-carousel">
+		            <!--Card-1-->
+	            	<div  th:each="list : ${restaurantes}">
+		               	<div class="news shadow">
+		                	 	<div class="img-figure">
+		                    	<div class="cat" th:text="${list.categoria}" >Cozinha</div>
+		                   	<img th:src="|/imagemR/${list.idRestaurante}|" class="img-fluid">
+		                 	</div>	
+		       		
+		                  <div class="title">
+		                    <span th:text="|${list.cidade}, ${list.bairro} - ${list.rua} - ${list.numero}|"> </span>
+		                    <h1 th:text="${list.nomeRestaurante}"></h1>
+		                  </div>
+		                  <p class="description" >
+		                   	<span>Horario de abertura: <span th:text="${list.horaAbertura}"></span></span><br><span>Horario de fechamento: <span th:text="${list.horaFechamento}"></span></span>
+		                  </p>
+		        
+		                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">
+		                    <a style="border-radius: 30px;font-size: 16px;" th:href="@{/detalhes/}+ ${list.idRestaurante}">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+		                  </p>
+		                </div>
 	                </div>
-                </div>
-			
+				
+		        </div>
+				<div>	
+		        	<span th:text="${nada}" style="font-size: 20px; margin-left: 35%"></span>
+		        </div>
+	            
 	        </div>
-			<div>	
-	        	<span th:text="${nada}" style="font-size: 20px; margin-left: 35%"></span>
-	        </div>
-            
-        </div>
     </div>
 </section>
 

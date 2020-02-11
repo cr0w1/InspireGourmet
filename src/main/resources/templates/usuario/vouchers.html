@@ -255,7 +255,7 @@
                 </li>
   				
   				<li class="nav-item dropdown">
-        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false"><img id="img" src="/images/table-1469719_960_720.jpg"/>&nbsp; 
+        			 <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false"><img id="img" th:src="|/imagem/${session.usuarioLogado.idUsuario}|"/>&nbsp; 
                       <span th:text="${session.usuarioLogado.nomeUsuario}" class="icon " style="font-size: 16px;"></span>&nbsp; &nbsp;</a>
                      <div class="dropdown-menu">
                      	<a class="text-white dropdown-item display-4" th:href="|/edite/${session.usuarioLogado.idUsuario}|">Perfil</a>
