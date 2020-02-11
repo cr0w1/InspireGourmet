@@ -193,19 +193,19 @@ public class RestauranteController {
 		ModelAndView modelAndView= new ModelAndView("usuario/home");
 		
 		System.out.println(pesquisa);
-		if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Japonesa")) {
+		if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("japonesa")) {
 			
-			if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Coreana")) {
+			if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("coreana")) {
 				
-				if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Tailandesa")) {
+				if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("tailandesa")) {
 					
-					if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Indiana")) {
+					if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("indiana")) {
 						
-						if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Pizza")) {
+						if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("pizza")) {
 							
-							if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Italiana")) {
+							if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("italiana")) {
 								
-								if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("Regional")) {
+								if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("regional")) {
 									if(pesquisa.trim().equals(pesquisa) != pesquisa.trim().equals("")) {
 										
 											

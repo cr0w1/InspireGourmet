@@ -24,6 +24,7 @@
 	position: relative;	
 	overflow: hidden;
 	transition: all 1s ease;
+	height:200px;
 }
 
 .news:hover .img-figure img {
@@ -38,7 +39,8 @@
 	background: #fff;
 	width: 100%;
 	height: 100%;
-	transition: all 0.5s ease;	
+	transition: all 0.5s ease;
+	margin-bottom: 10px;
 }
 
 

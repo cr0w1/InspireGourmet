@@ -33,9 +33,6 @@ public class Usuario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDeCriacao;
 	
-	@Lob
-	private byte[] img;
-	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date ultimoUpdate;
 	
@@ -93,14 +90,6 @@ public class Usuario {
 
 	public void setDataDeCriacao(Date dataDeCriacao) {
 		this.dataDeCriacao = dataDeCriacao;
-	}
-
-	public byte[] getImg() {
-		return img;
-	}
-
-	public void setImg(byte[] img) {
-		this.img = img;
 	}
 
 	public Date getUltimoUpdate() {

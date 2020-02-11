@@ -33,6 +33,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   
+  <style type="text/css">
+  	@media only screen and (min-width: 900px) {
+	#img{
+		width: 500px;
+		height: 300px;
+		border-radius: 50%;
+		align-content: center;
+		margin-left: 25%;
+	}
+
+	
+	
+}
+  	
+  </style>
 </head>
 <body>
   <section class="menu cid-rIdJm2Bp7s" once="menu" id="menu1-14">
@@ -83,7 +98,11 @@
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
+            	<div class="social-container">
+            		<img id="img" th:src="|/imagemR/${restaurante.idRestaurante}|" class="img-fluid col-6">
+                </div>
+            	<br>
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2" th:text="${restaurante.nomeRestaurante}">
                     Nome do Restaurnte</h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-7">Na compra de um prato, ganhe outro de igual ou menor valor!</h3>
                 
@@ -241,7 +260,7 @@
 	                  </p>
 	        
 	                  <p class="more" style="margin-left: 36%; margin-bottom: 20px;">
-	                    <a style="border-radius: 30px;font-size: 16px;" th:href="@{/detalhes/}+ ${list.idRestaurante}">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+	                    <a style="border-radius: 30px;font-size: 16px;" th:href="@{/detalhe/}+ ${list.idRestaurante}">Detalhes</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 	                  </p>
 	                </div>
                 </div>
@@ -256,18 +275,6 @@
     </div>
 </section>
 
-<section class="mbr-section content8 cid-rIhgvgiuEf" id="content8-1q">
-
-    
-
-    <div class="container">
-        <div class="media-container-row title">
-            <div class="col-12 col-md-8">
-                <div class="mbr-section-btn align-center"><a class="btn btn-primary display-4" href="/restaurantes">Ver todos restaurantes em Recife</a></div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="cid-rHO9wjEA5p" id="footer5-13">
 
     

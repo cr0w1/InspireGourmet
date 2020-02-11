@@ -32,4 +32,12 @@ public class VoucherService {
 	public List<Voucher> buscarPorIdUser(Integer idUsuario) {
 		return Dao.buscarPorIdUser(idUsuario);
 	}
+
+	public Object buscarPorHASH(String codi) {
+		return Dao.buscarPorHash(codi);
+	}
+	
+	public Voucher buscarPorHASH1(String codi) {
+		return Dao.buscarPorHash1(codi);
+	}
 }

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.models.Oferta;
@@ -81,7 +83,25 @@ public class VouncherController {
 		outputStream.close();
 	}
 	
-	
+	@PostMapping("/validar")
+	public String shiw(@RequestParam(name = "codigo")String codi,RedirectAttributes ra) {
+		
+		Boolean voucherCheck = voucherService.buscarPorHASH(codi) == null;
+		if(voucherCheck != false) {
+			ra.addFlashAttribute("mensagemErro", "1");
+			return "redirect:/scanner/qr";
+		}else {
+			
+			Voucher voucher = voucherService.buscarPorHASH1(codi);
+			voucher.setStatus(0);
+			voucherService.save(voucher);
+			
+			ra.addFlashAttribute("mensagemErro", "2");
+			return "redirect:/scanner/qr";
+		}
+		
+		
+	}
 	
 	
 	

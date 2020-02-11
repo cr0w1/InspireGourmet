@@ -36,6 +36,22 @@
 	<!-- CAROUSEL -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<style type="text/css">
+  	@media only screen and (min-width: 900px) {
+	#img122{
+		width: 500px;
+		height: 300px;
+		border-radius: 50%;
+		align-content: center;
+		margin-left: 25%;
+	}
+
+	
+	
+}
+  	
+  </style>
 </head>
 <body>
   <div th:unless="${session.usuarioLogado}">
@@ -118,6 +134,10 @@
     <div class="mbr-overlay" style="opacity: 0.9;"><div id="rgb"></div> </div>
     <div class="container">
         <div class="media-container-row">
+        	<div class="social-container">
+           		<img id="img122" th:src="|/imagemR/${restaurante.idRestaurante}|" class="img-fluid col-6">
+              </div>
+           	<br>
             <div class="title col-12 col-md-8">
                 <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2" th:text="${restaurante.nomeRestaurante}"></h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-7">Na compra de um prato, ganhe outro de igual ou menor valor!</h3>
